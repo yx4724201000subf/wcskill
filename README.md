@@ -6,17 +6,19 @@ Ounin 的内容创作工具箱。做成 Claude Code skill，给创作者用。
 
 ## 工具箱
 
-| Skill | 做什么 |
-|---|---|
-| `/wc` | 主入口，自动路由到对的工具 |
+
+| Skill           | 做什么                           |
+| --------------- | ----------------------------- |
+| `/wc`           | 主入口，自动路由到对的工具                 |
 | `/wc-xhs-title` | 小红书标题引擎。从 62 套验证过的标题结构中匹配最优方案 |
+
 
 ---
 
 ## 安装
 
 ```bash
-git clone https://github.com/fufuof/wcskill.git /tmp/wcskill && cp -r /tmp/wcskill/skills/wc* ~/.claude/skills/ && rm -rf /tmp/wcskill
+git clone https://github.com/yx4724201000subf/wcskill.git /tmp/wcskill && cp -r /tmp/wcskill/skills/wc* ~/.claude/skills/ && rm -rf /tmp/wcskill
 ```
 
 安装后在 Claude Code 中输入 `/wc` 即可。
