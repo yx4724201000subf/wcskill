@@ -18,10 +18,10 @@ Ounin 的内容创作工具箱。做成 Claude Code skill，给创作者用。
 ## 安装
 
 ```bash
-git clone https://github.com/yx4724201000subf/wcskill.git /tmp/wcskill && cp -r /tmp/wcskill/skills/wc* ~/.claude/skills/ && rm -rf /tmp/wcskill
+git clone https://github.com/yx4724201000subf/wcskill.git /tmp/wcskill && cp -r /tmp/wcskill/skills/wc* ~/.cursor/skills-cursor/ && rm -rf /tmp/wcskill
 ```
 
-安装后在 Claude Code 中输入 `/wc` 即可。
+安装后在 Cursor 中输入 `/wc` 即可。
 
 ---
 
