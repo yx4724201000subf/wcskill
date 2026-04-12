@@ -1,0 +1,6 @@
+# 用户跑 wc-hook-dy 时的原始数据和产物
+*.csv
+*-opening-paradigms.md
+
+# 常见临时/系统文件
+.DS_Store
