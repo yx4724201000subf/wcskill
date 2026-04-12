@@ -18,11 +18,35 @@ Ounin 的内容创作工具箱。做成 Claude Code skill，给创作者用。
 
 ## 安装
 
+### Claude Code 用户
+
 ```bash
 git clone https://github.com/yx4724201000subf/wcskill.git /tmp/wcskill && mkdir -p ~/.claude/skills && cp -r /tmp/wcskill/skills/wc* ~/.claude/skills/ && rm -rf /tmp/wcskill
 ```
 
-安装后在 Claude Code / Cursor 中输入 `/wc` 即可。
+### Cursor 用户
+
+在 Cursor 里按 `` Cmd+` ``（Mac）/ `` Ctrl+` ``（Windows）打开终端，粘贴：
+
+```bash
+git clone https://github.com/yx4724201000subf/wcskill.git /tmp/wcskill && mkdir -p ~/.cursor/skills-cursor && cp -r /tmp/wcskill/skills/wc* ~/.cursor/skills-cursor/ && rm -rf /tmp/wcskill
+```
+
+装完重启 Cursor，在 **Agent 模式**（不是 Ask 模式）的对话框里输入 `/wc` 回车，能看到工具菜单就成了。
+
+### 前置依赖（只有 `/wc-hook-dy` 需要）
+
+抖音开头引擎要解析对标表格，需要：
+
+1. **Python 3**（Mac 自带；Windows 去 python.org 装）
+2. **openpyxl**（只有喂 `.xlsx` 才需要，`.csv` 不用）
+   ```bash
+   pip3 install openpyxl
+   ```
+
+### 更新到最新版
+
+把上面的安装命令再跑一遍即可（会覆盖旧文件）。
 
 ---
 
