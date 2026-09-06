@@ -127,7 +127,7 @@ class WorkBuddyInstallTests(unittest.TestCase):
 
 
 class PackageTests(unittest.TestCase):
-    def test_six_import_archives_and_offline_bundle(self):
+    def test_all_import_archives_and_offline_bundle(self):
         spec = importlib.util.spec_from_file_location("build_workbuddy", ROOT / "scripts/build_workbuddy.py")
         builder = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(builder)

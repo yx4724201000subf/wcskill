@@ -23,6 +23,7 @@ DESCRIPTIONS = {
     "wc-dy-hook": ("从对标内容提炼并生成抖音短视频开头。", "Analyze reference videos and generate Douyin opening hooks."),
     "wc-xhs-title": ("根据话题和受众生成小红书标题。", "Generate Xiaohongshu titles for a topic and audience."),
     "wc-research": ("组织思想家模拟圆桌，研究问题并持续学习。", "Research questions through simulated interdisciplinary discussions."),
+    "wc-position": ("结合业务和本人经历制定人设定位方案。", "Create persona positioning proposals from business and personal experience."),
     "wc-update": ("更新望川工具箱，备份本地修改并保留用户存档。", "Update the Wangchuan toolkit with backups of local changes."),
 }
 

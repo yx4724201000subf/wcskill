@@ -1,6 +1,6 @@
 # wcskill
 
-望川的学员内容创作工具箱。当前提供 6 个 Skill：一个入口、四项内容与学习能力和一项更新工具。
+望川的学员内容创作工具箱。当前提供 7 个 Skill：一个入口、五项内容与学习能力和一项更新工具。
 
 ## 工具
 
@@ -11,6 +11,7 @@
 | `wc-dy-hook` | 抖音开头分析与生成 | 对标文案和数据表；或正文与已有范式库 | 开头范式库，或 5–10 个备选开头 |
 | `wc-xhs-title` | 小红书标题生成 | 话题／正文及目标受众 | 从 62 套结构中匹配的标题方案 |
 | `wc-research` | 思想家研究圆桌 | 一个问题、主题或材料；可指定人物或沿用已有圆桌 | 独立观点、交叉回应、主持审议及研究依据；也可转入知识讲解与持续学习 |
+| `wc-position` | 人设定位方案 | 产品与价格、目标客户、履历案例；代运营补充性格、竞争环境与初步判断 | 人设建议、表达示范、视觉建议、差异化、落地清单和成长路径；代运营草案含结论依据与验证安排 |
 | `wc-update` | 一句话更新工具箱 | “帮我更新 wcskill” | 更新当前客户端的正式工具，备份本地修改，保留用户存档 |
 
 ## 安装
@@ -32,7 +33,7 @@ DISABLE_TELEMETRY=1 npx -y skills add Rivo2026/wcskill --skill wc-organize --age
 
 Claude Code 用户把 `--agent codex` 改为 `--agent claude-code`。命令使用 [Skills CLI](https://github.com/vercel-labs/skills)，需要 Git、Node.js 和 npm/npx；安装与更新命令关闭其匿名使用统计。
 
-也可以下载本仓库，或运行 `git clone https://github.com/Rivo2026/wcskill.git`，把 `skills/` 下的 6 个文件夹分别放进所用客户端的 Skill 目录。每个文件夹里应直接包含 `SKILL.md`，并保留随附的 `references/`、`scripts/`、`agents/`。
+也可以下载本仓库，或运行 `git clone https://github.com/Rivo2026/wcskill.git`，把 `skills/` 下的 7 个文件夹分别放进所用客户端的 Skill 目录。每个文件夹里应直接包含 `SKILL.md`，并保留随附的 `references/`、`scripts/`、`agents/`。
 
 | 客户端 | 用户级 Skill 目录 | 调用示例 |
 | --- | --- | --- |
@@ -44,11 +45,11 @@ Claude Code 用户把 `--agent codex` 改为 `--agent claude-code`。命令使�
 
 SkillHub 整套条目已于 2026-09-06 提交审核，名称为 **wcskill · 望川内容创作工具箱**，Slug 为 `wcskill`，发布者为“望川”。审核通过并可检索后，可以让助手搜索并安装这个条目；提交审核不代表已经在市场上架。
 
-市场版将六个工具及全部资料、脚本放在一个 `wcskill` 包内，一次安装即可按任务读取使用。也可从 GitHub 下载 [wcskill 单包导入版](https://github.com/Rivo2026/wcskill/releases/download/v2.3.0/wcskill-skillhub-2.3.0.zip)，作为一个 Skill 导入。它与下面的离线安装包用途不同：单包版自带总入口，可直接使用；离线安装包将六个工具分别安装到客户端。
+市场版将七个工具及全部资料、脚本放在一个 `wcskill` 包内，一次安装即可按任务读取使用。也可从 GitHub 下载 [wcskill 单包导入版](https://github.com/Rivo2026/wcskill/releases/download/v2.4.0/wcskill-skillhub-2.4.0.zip)，作为一个 Skill 导入。它与下面的离线安装包用途不同：单包版自带总入口，可直接使用；离线安装包将七个工具分别安装到客户端。
 
-直接把上面的一句话发给 WorkBuddy，由它读取 [INSTALL.md](INSTALL.md) 并安装六个工具。以下下载方式仅作备用。
+直接把上面的一句话发给 WorkBuddy，由它读取 [INSTALL.md](INSTALL.md) 并安装七个工具。以下下载方式仅作备用。
 
-也可以下载 [WorkBuddy 整套安装包](https://github.com/Rivo2026/wcskill/releases/download/v2.3.0/wcskill-workbuddy-2.3.0.zip)，解压后把文件夹交给 WorkBuddy，并说：
+也可以下载 [WorkBuddy 整套安装包](https://github.com/Rivo2026/wcskill/releases/download/v2.4.0/wcskill-workbuddy-2.4.0.zip)，解压后把文件夹交给 WorkBuddy，并说：
 
 > 请读取安装说明，用随附的 install.py 将这套 wcskill 安装到 WorkBuddy，保留我的存档和已有修改。
 
@@ -60,9 +61,9 @@ SkillHub 整套条目已于 2026-09-06 提交审核，名称为 **wcskill · 望
 python3 skills/wc-update/scripts/workbuddy_install.py --source .
 ```
 
-喜欢界面导入的学员，可以在 [发布页](https://github.com/Rivo2026/wcskill/releases/tag/v2.3.0) 下载六个单独的 WorkBuddy 技能 ZIP 包，通过“技能 → 添加技能 → 上传技能”逐个导入。整套安装包用于解压安装，不作为单个 Skill 上传。导入后在“已安装”中确认启用，再新建对话说“望川工具箱有哪些工具”。[WorkBuddy 官方安装说明](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)
+喜欢界面导入的学员，可以在 [发布页](https://github.com/Rivo2026/wcskill/releases/tag/v2.4.0) 下载七个单独的 WorkBuddy 技能 ZIP 包，通过“技能 → 添加技能 → 上传技能”逐个导入。整套安装包用于解压安装，不作为单个 Skill 上传。导入后在“已安装”中确认启用，再新建对话说“望川工具箱有哪些工具”。[WorkBuddy 官方安装说明](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)
 
-WorkBuddy 包由同一套核心 Skill 自动生成，保留正文、参考资料和脚本，并补充导入所需的中文介绍、英文介绍、版本和作者信息。`wc` 是总入口，整套使用需要安装全部六个 Skill。
+WorkBuddy 包由同一套核心 Skill 自动生成，保留正文、参考资料和脚本，并补充导入所需的中文介绍、英文介绍、版本和作者信息。`wc` 是总入口，整套使用需要安装全部七个 Skill。
 
 本版抖音开头 Skill 名称是 `wc-dy-hook`。旧版使用 `wc-hook-dy`，升级时请用新名称替换旧入口。
 
@@ -86,6 +87,8 @@ $wc-dy-hook 从这份对标文案和播放数据表里提炼开头范式。
 $wc-xhs-title 给这篇文章起小红书标题，目标读者是刚开始做内容的创作者。
 
 $wc-research 帮我为这个问题推荐一组思想家，共同研究不同解释与依据。
+
+$wc-position 根据我的产品、客户和经历，制定人设定位方案。
 ```
 
 Claude Code 用户把示例中的 `$` 改为 `/`。
