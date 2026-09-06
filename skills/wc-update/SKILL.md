@@ -18,6 +18,8 @@ description: 更新望川 wcskill 工具箱，保留其他 Skill 与用户存档
 
 ## 执行步骤
 
+**WorkBuddy 分支**：当前客户端为 WorkBuddy、当前 Skill 安装路径位于 `.workbuddy/skills/`，或用户明确要求更新 WorkBuddy 中的 wcskill 时，读取 [WorkBuddy 安装与更新](references/workbuddy.md)，使用随附安装器完成后结束。本节后续的 Skills CLI 命令适用于其已支持的其他客户端。
+
 1. 从当前会话和实际 Skill 路径确定客户端及安装范围，读取当前入口，解析符号链接指向。用户级安装沿用用户级；项目级安装在原项目目录执行，不加 `-g`。Codex 使用 `--agent codex`，Claude Code 使用 `--agent claude-code`；其他客户端先核对 Skills CLI 支持的名称。首次安装默认当前客户端的用户级目录。目录确有歧义且会改变覆盖范围时才询问，不重复确认已明确的更新意图。
 
 2. 查看官方仓库的 Skill 清单，备份目标范围内将被覆盖的同名文件夹和入口，包括符号链接指向及本地修改；备份放在安装目录外，记录原路径和本来不存在的目标。无法判断是否被修改时也备份，不能仅备份入口文件。`~/.wcskill/` 中的用户存档及其他仓库的 Skill 不参与覆盖；遇到同名但属于其他来源的工具时，先报告具体冲突，不能视为本工具箱的旧版。

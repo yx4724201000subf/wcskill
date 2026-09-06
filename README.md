@@ -15,6 +15,14 @@
 
 ## 安装
 
+对 AI 说：
+
+> 帮我从 https://github.com/Rivo2026/wcskill 安装 wcskill，按仓库 INSTALL.md 安装到当前客户端。
+
+这会安装整套工具箱。WorkBuddy、Codex 和 Claude Code 的安装步骤见 [安装入口](INSTALL.md)，由助手执行，学员不用逐个下载子工具。
+
+只说“安装 wcskill”需要当前助手能检索到本仓库，或所用技能市场已收录这个名字；本仓库不承诺所有客户端都已收录。找不到时补上上述仓库链接即可。
+
 使用 Skills CLI 将全部工具安装到 Codex，或只安装语料整理工具：
 
 ```bash
@@ -30,6 +38,27 @@ Claude Code 用户把 `--agent codex` 改为 `--agent claude-code`。命令使�
 | --- | --- | --- |
 | Codex | `~/.agents/skills/` 或 `~/.codex/skills/`，选一个入口即可 | `$wc`、`$wc-organize` |
 | Claude Code | `~/.claude/skills/` | `/wc`、`/wc-organize` |
+| WorkBuddy | `~/.workbuddy/skills/` | 用中文说明任务，或在技能列表选中 `wc` |
+
+### WorkBuddy 安装
+
+直接把上面的一句话发给 WorkBuddy，由它读取 [INSTALL.md](INSTALL.md) 并安装六个工具。以下下载方式仅作备用。
+
+也可以下载 [WorkBuddy 整套安装包](https://github.com/Rivo2026/wcskill/releases/download/v2.3.0/wcskill-workbuddy-2.3.0.zip)，解压后把文件夹交给 WorkBuddy，并说：
+
+> 请读取安装说明，用随附的 install.py 将这套 wcskill 安装到 WorkBuddy，保留我的存档和已有修改。
+
+也可以在解压后的文件夹中运行 `python3 install.py --source .`；Windows 使用 `py -3 install.py --source .`。需要 Python 3.9+。安装器默认写入 `~/.workbuddy/skills/`，安装前备份同名旧内容，失败时恢复原入口。若提示未标识来源的同名工具，确认它们属于旧版 wcskill 后才加 `--replace-existing`。
+
+从 GitHub 下载或克隆了本仓库的用户，也可以在仓库目录运行：
+
+```bash
+python3 skills/wc-update/scripts/workbuddy_install.py --source .
+```
+
+喜欢界面导入的学员，可以在 [发布页](https://github.com/Rivo2026/wcskill/releases/tag/v2.3.0) 下载六个单独的 WorkBuddy 技能 ZIP 包，通过“技能 → 添加技能 → 上传技能”逐个导入。整套安装包用于解压安装，不作为单个 Skill 上传。导入后在“已安装”中确认启用，再新建对话说“望川工具箱有哪些工具”。[WorkBuddy 官方安装说明](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)
+
+WorkBuddy 包由同一套核心 Skill 自动生成，保留正文、参考资料和脚本，并补充导入所需的中文介绍、英文介绍、版本和作者信息。`wc` 是总入口，整套使用需要安装全部六个 Skill。
 
 本版抖音开头 Skill 名称是 `wc-dy-hook`。旧版使用 `wc-hook-dy`，升级时请用新名称替换旧入口。
 
@@ -100,6 +129,8 @@ $wc-research 继续上次圆桌，让原来那组人回应我补充的这个反�
 > 帮我更新 wcskill
 
 也可以在 Codex 中输入 `$wc-update`，或在 Claude Code 中输入 `/wc-update`。工具会沿用当前客户端和安装范围，更新本仓库的正式 Skill；更新前备份将被覆盖的内容，保留用户存档和其他来源的 Skill。本地修改会留在备份中，不自动合并进新版。
+
+WorkBuddy 同样可以说“帮我更新 wcskill”，会使用随附的 Python 安装器下载官方最新版并写入 WorkBuddy 的实际技能目录。只检查新版时不改文件。它使用独立的 WorkBuddy 分支，不要求 Skills CLI 识别这个客户端。
 
 早期版本没有更新入口：先重新运行上面的完整安装命令，或对助手说“从 https://github.com/Rivo2026/wcskill 安装最新版到当前客户端，保留我的存档和本地修改”。只安装单个内容 Skill 的用户，也需要补装 `wc-update` 才能使用这个入口。只询问版本或更新内容不会执行安装。
 
