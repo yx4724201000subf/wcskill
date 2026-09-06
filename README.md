@@ -1,6 +1,6 @@
 # wcskill
 
-望川的学员内容创作工具箱。当前提供 5 个 Skill：一个入口和四项内容与学习能力。
+望川的学员内容创作工具箱。当前提供 6 个 Skill：一个入口、四项内容与学习能力和一项更新工具。
 
 ## 工具
 
@@ -11,17 +11,20 @@
 | `wc-dy-hook` | 抖音开头分析与生成 | 对标文案和数据表；或正文与已有范式库 | 开头范式库，或 5–10 个备选开头 |
 | `wc-xhs-title` | 小红书标题生成 | 话题／正文及目标受众 | 从 62 套结构中匹配的标题方案 |
 | `wc-research` | 思想家研究圆桌 | 一个问题、主题或材料；可指定人物或沿用已有圆桌 | 独立观点、交叉回应、主持审议及研究依据；也可转入知识讲解与持续学习 |
+| `wc-update` | 一句话更新工具箱 | “帮我更新 wcskill” | 更新当前客户端的正式工具，备份本地修改，保留用户存档 |
 
 ## 安装
 
-使用 Skills CLI 安装全部工具，或只安装语料整理工具：
+使用 Skills CLI 将全部工具安装到 Codex，或只安装语料整理工具：
 
 ```bash
-npx -y skills add Rivo2026/wcskill -g --all
-npx -y skills add Rivo2026/wcskill -g --skill wc-organize --agent codex --yes
+DISABLE_TELEMETRY=1 npx -y skills add Rivo2026/wcskill --skill '*' --agent codex -g --yes
+DISABLE_TELEMETRY=1 npx -y skills add Rivo2026/wcskill --skill wc-organize --agent codex -g --yes
 ```
 
-也可以下载本仓库，或运行 `git clone https://github.com/Rivo2026/wcskill.git`，把 `skills/` 下的 5 个文件夹分别放进所用客户端的 Skill 目录。每个文件夹里应直接包含 `SKILL.md`，并保留随附的 `references/`、`scripts/`、`agents/`。
+Claude Code 用户把 `--agent codex` 改为 `--agent claude-code`。命令使用 [Skills CLI](https://github.com/vercel-labs/skills)，需要 Git、Node.js 和 npm/npx；安装与更新命令关闭其匿名使用统计。
+
+也可以下载本仓库，或运行 `git clone https://github.com/Rivo2026/wcskill.git`，把 `skills/` 下的 6 个文件夹分别放进所用客户端的 Skill 目录。每个文件夹里应直接包含 `SKILL.md`，并保留随附的 `references/`、`scripts/`、`agents/`。
 
 | 客户端 | 用户级 Skill 目录 | 调用示例 |
 | --- | --- | --- |
@@ -89,6 +92,18 @@ $wc-research 从这篇文章的具体判断出发，帮我梳理值得学的知�
 $wc-research 带我从零学习这个主题，每轮讲一个知识点，根据我的回答调整。
 $wc-research 继续上次圆桌，让原来那组人回应我补充的这个反例。
 ```
+
+## 一句话更新
+
+安装包含 `wc-update` 的版本并新建对话后，直接对助手说：
+
+> 帮我更新 wcskill
+
+也可以在 Codex 中输入 `$wc-update`，或在 Claude Code 中输入 `/wc-update`。工具会沿用当前客户端和安装范围，更新本仓库的正式 Skill；更新前备份将被覆盖的内容，保留用户存档和其他来源的 Skill。本地修改会留在备份中，不自动合并进新版。
+
+早期版本没有更新入口：先重新运行上面的完整安装命令，或对助手说“从 https://github.com/Rivo2026/wcskill 安装最新版到当前客户端，保留我的存档和本地修改”。只安装单个内容 Skill 的用户，也需要补装 `wc-update` 才能使用这个入口。只询问版本或更新内容不会执行安装。
+
+更新完成后，如果当前对话仍使用旧规则，新建一次对话即可。完整流程见 [更新 Skill](skills/wc-update/SKILL.md)。
 
 ## 许可证
 
