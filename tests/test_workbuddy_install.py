@@ -134,7 +134,7 @@ class PackageTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             outputs = builder.build(Path(temp))
             version, names = wb.catalog(ROOT)
-            self.assertEqual(len(outputs), len(names) + 2)
+            self.assertEqual(len(outputs), len(names) + 3)
             for name in names:
                 with zipfile.ZipFile(Path(temp) / f"{name}-workbuddy-{version}.zip") as zipped:
                     source = ROOT / "skills" / name
@@ -146,6 +146,13 @@ class PackageTests(unittest.TestCase):
             with zipfile.ZipFile(Path(temp) / f"wcskill-workbuddy-{version}.zip") as zipped:
                 self.assertIn("wcskill-workbuddy/install.py", zipped.namelist())
                 self.assertIn("wcskill-workbuddy/安装说明.md", zipped.namelist())
+            with zipfile.ZipFile(Path(temp) / f"wcskill-skillhub-{version}.zip") as market:
+                self.assertIn("wcskill/SKILL.md", market.namelist())
+                self.assertLessEqual(len(market.namelist()), 200)
+                for name in names:
+                    with zipfile.ZipFile(Path(temp) / f"{name}-workbuddy-{version}.zip") as single:
+                        for member in single.namelist():
+                            self.assertEqual(market.read("wcskill/skills/" + member), single.read(member))
 
 
 if __name__ == "__main__":

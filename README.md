@@ -42,6 +42,10 @@ Claude Code 用户把 `--agent codex` 改为 `--agent claude-code`。命令使�
 
 ### WorkBuddy 安装
 
+SkillHub 整套条目已于 2026-09-06 提交审核，名称为 **wcskill · 望川内容创作工具箱**，Slug 为 `wcskill`，发布者为“望川”。审核通过并可检索后，可以让助手搜索并安装这个条目；提交审核不代表已经在市场上架。
+
+市场版将六个工具及全部资料、脚本放在一个 `wcskill` 包内，一次安装即可按任务读取使用。也可从 GitHub 下载 [wcskill 单包导入版](https://github.com/Rivo2026/wcskill/releases/download/v2.3.0/wcskill-skillhub-2.3.0.zip)，作为一个 Skill 导入。它与下面的离线安装包用途不同：单包版自带总入口，可直接使用；离线安装包将六个工具分别安装到客户端。
+
 直接把上面的一句话发给 WorkBuddy，由它读取 [INSTALL.md](INSTALL.md) 并安装六个工具。以下下载方式仅作备用。
 
 也可以下载 [WorkBuddy 整套安装包](https://github.com/Rivo2026/wcskill/releases/download/v2.3.0/wcskill-workbuddy-2.3.0.zip)，解压后把文件夹交给 WorkBuddy，并说：

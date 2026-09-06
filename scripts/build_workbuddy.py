@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import importlib.util
+import json
 from pathlib import Path
 import shutil
 import tempfile
@@ -52,6 +53,25 @@ def build(output):
         )
         dest = output / f"wcskill-workbuddy-{version}.zip"
         archive(bundle, dest)
+        results.append(dest)
+        # A single market entry contains the entire toolkit, usable without
+        # registering six separate skills or running an installation hook.
+        market = root / "wcskill"
+        shutil.copytree(bundle / "skills", market / "skills")
+        shutil.copy2(bundle / "VERSION", market / "VERSION.md")
+        shutil.copy2(ROOT / "LICENSE", market / "LICENSE.md")
+        entry = (ROOT / "scripts/templates/skillhub-entry.md").read_text(encoding="utf-8")
+        _, front, body = entry.split("---", 2)
+        fields = {"description_zh": "望川内容创作工具箱：语料整理、抖音开头、小红书标题、思想家研究圆桌与更新，整套安装。",
+                  "description_en": "Wangchuan's complete content toolkit: script organization, video hooks, titles, research roundtables and updates.",
+                  "version": version, "author": "望川"}
+        extra = "\n".join(f"{key}: {json.dumps(value, ensure_ascii=False)}" for key, value in fields.items())
+        (market / "SKILL.md").write_text("---\n" + front.strip() + "\n" + extra + "\n---" + body, encoding="utf-8")
+        files = [p for p in market.rglob("*") if p.is_file()]
+        if len(files) > 200 or sum(p.stat().st_size for p in files) > 10_000_000:
+            raise ValueError("SkillHub package exceeds upload limits")
+        dest = output / f"wcskill-skillhub-{version}.zip"
+        archive(market, dest)
         results.append(dest)
     checksums = output / "SHA256SUMS.txt"
     checksums.write_text("".join(hashlib.sha256(p.read_bytes()).hexdigest() + "  " + p.name + "\n" for p in results), encoding="utf-8")
